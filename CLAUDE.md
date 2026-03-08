@@ -29,15 +29,16 @@ O `base: '/fisio-box/'` em `vite.config.js` é obrigatório para o roteamento de
 
 ## Architecture
 
-Single Page Application with a sidebar/menu for switching between 6 independent calculator views. Each calculator is a self-contained component with its own form, calculation logic, and result display.
+Single Page Application with a sidebar/menu for switching between 7 independent calculator views. Each calculator is a self-contained component with its own form, calculation logic, and result display.
 
-**6 calculators to implement:**
+**7 calculators:**
 1. IMC (Body Mass Index)
 2. RCQ (Waist-Hip Ratio)
 3. TC6M (6-Minute Walk Test)
 4. Teste do Degrau (Step Test)
 5. Manovacuometria (Respiratory Pressure)
 6. Carga Tabágica (Smoking Load)
+7. Tanaka (Heart Rate Training)
 
 **Suggested structure:**
 ```
@@ -69,12 +70,18 @@ All numeric outputs rounded to 2 decimal places.
 - Percentual: `(degraus realizados / degraus previstos) × 100`
 
 **Manovacuometria** (idade in anos):
-- Homens: PImáx = `-0.80 × idade + 153`; PEmáx = `-0.81 × idade + 165.3`
+- Homens: PImáx = `-0.80 × idade + 155.3`; PEmáx = `-0.81 × idade + 165.3`
 - Mulheres: PImáx = `-0.49 × idade + 110.4`; PEmáx = `-0.61 × idade + 115.6`
 - LIN Homens: predito - (1.645 × 17) for PImáx; predito - (1.645 × 18) for PEmáx
 - LIN Mulheres: predito - (1.645 × 11) for PImáx; predito - (1.645 × 12) for PEmáx
 
 **Carga Tabágica:** `(cigarros/dia / 20) × anos fumando`
+
+**Tanaka** (idade in anos, FC de repouso in bpm, percentual de treinamento %):
+- FCmáx = `208 - (0.7 × idade)`
+- FC de Reserva = `FCmáx - FC de Repouso`
+- FC de Treinamento = `(FC de Reserva × % / 100) + FC de Repouso`
+- Percentuais de referência clínica: 60% = graves (vermelho), 70% = moderados (amarelo), 80% = leves (verde)
 
 ## Validation Rules
 

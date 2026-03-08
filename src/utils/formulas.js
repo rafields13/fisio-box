@@ -71,7 +71,7 @@ export function calcularManovacuometria({ sexo, idade }) {
   const i = Number(idade)
   let pimax, pemax
   if (sexo === 'masculino') {
-    pimax = (-0.80 * i) + 153
+    pimax = (-0.80 * i) + 155.3
     pemax = (-0.81 * i) + 165.3
     return {
       pimax: round2(pimax),
@@ -89,6 +89,14 @@ export function calcularManovacuometria({ sexo, idade }) {
       linPemax: round2(pemax - (1.645 * 12)),
     }
   }
+}
+
+// Tanaka
+export function calcularTanaka({ idade, fcRepouso, percentualTreinamento }) {
+  const fcMax = round2(208 - (0.7 * Number(idade)))
+  const fcReserva = round2(fcMax - Number(fcRepouso))
+  const fcTreinamento = round2((fcReserva * (Number(percentualTreinamento) / 100)) + Number(fcRepouso))
+  return { fcMax, fcReserva, fcTreinamento }
 }
 
 // Carga Tabágica

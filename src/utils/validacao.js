@@ -54,6 +54,17 @@ export function validarManovacuometria({ sexo, idade }) {
   return erros
 }
 
+// Tanaka
+export function validarTanaka({ idade, fcRepouso, percentualTreinamento }) {
+  const erros = {}
+  if (!positivo(idade)) erros.idade = CAMPO_OBRIGATORIO
+  if (!positivo(fcRepouso)) erros.fcRepouso = CAMPO_OBRIGATORIO
+  const p = Number(percentualTreinamento)
+  if (!percentualTreinamento || p <= 0 || p > 100)
+    erros.percentualTreinamento = 'Informe um percentual entre 1 e 100.'
+  return erros
+}
+
 // Carga Tabágica
 export function validarCargaTabagica({ cigarrosDia, anosFumando }) {
   const erros = {}

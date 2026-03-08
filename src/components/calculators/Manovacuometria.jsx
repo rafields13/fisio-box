@@ -7,7 +7,7 @@ import { calcularManovacuometria } from '../../utils/formulas'
 import { validarManovacuometria } from '../../utils/validacao'
 
 const FORMULA = [
-  'Homens:   PImáx = (−0,80 × idade) + 153',
+  'Homens:   PImáx = (−0,80 × idade) + 155,3',
   '          PEmáx = (−0,81 × idade) + 165,3',
   'Mulheres: PImáx = (−0,49 × idade) + 110,4',
   '          PEmáx = (−0,61 × idade) + 115,6',

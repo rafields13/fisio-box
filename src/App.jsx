@@ -5,6 +5,7 @@ import Tc6m from './components/calculators/Tc6m'
 import TesteDegrau from './components/calculators/TesteDegrau'
 import Manovacuometria from './components/calculators/Manovacuometria'
 import CargaTabagica from './components/calculators/CargaTabagica'
+import Tanaka from './components/calculators/Tanaka'
 
 const CALCULADORAS = [
   { id: 'imc',             label: 'IMC',              descricao: 'Índice de Massa Corporal',          componente: Imc },
@@ -13,6 +14,7 @@ const CALCULADORAS = [
   { id: 'testeDegrau',     label: 'Teste do Degrau',  descricao: 'Aptidão Cardiorrespiratória',       componente: TesteDegrau },
   { id: 'manovacuometria', label: 'Manovacuometria',  descricao: 'Pressões Respiratórias Máximas',   componente: Manovacuometria },
   { id: 'cargaTabagica',   label: 'Carga Tabágica',   descricao: 'Maços-Ano',                        componente: CargaTabagica },
+  { id: 'tanaka',          label: 'Tanaka',            descricao: 'Frequência Cardíaca de Treinamento', componente: Tanaka },
 ]
 
 export default function App() {

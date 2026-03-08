@@ -139,7 +139,7 @@ As regras a seguir definem a lógica de cálculo e as referências clínicas do 
 * O sexo é obrigatório.
 
 
-* Valores Preditos para Homens: PImáx = -0.80 × Idade + 153; PEmáx = -0.81 × Idade + 165.3.
+* Valores Preditos para Homens: PImáx = -0.80 × Idade + 155.3; PEmáx = -0.81 × Idade + 165.3.
 
 
 * Valores Preditos para Mulheres: PImáx = -0.49 × Idade + 110.4; PEmáx = -0.61 × Idade + 115.6.
@@ -155,6 +155,24 @@ As regras a seguir definem a lógica de cálculo e as referências clínicas do 
 **Carga Tabágica**
 
 * A fórmula deve ser: (Número de cigarros por dia / 20) × Número de anos fumando.
+
+
+
+**Fórmula de Tanaka**
+
+* FCmáx = 208 − (0,7 × Idade).
+
+* FC de Reserva = FCmáx − FC de Repouso.
+
+* FC de Treinamento = (FC de Reserva × % de Treinamento) + FC de Repouso.
+
+* Percentuais de referência clínica (exibidos como atalhos coloridos na interface):
+
+  * 60% — Pacientes graves.
+
+  * 70% — Pacientes moderados.
+
+  * 80% — Pacientes leves.
 
 
 
@@ -179,6 +197,7 @@ As regras a seguir definem a lógica de cálculo e as referências clínicas do 
 * **Teste do Degrau:** Sexo, Idade (anos), Altura (cm), Peso (kg), Número de degraus realizados.
 * **Manovacuometria:** Sexo, Idade (anos).
 * **Carga Tabágica:** Número de cigarros por dia, Número de anos fumando.
+* **Fórmula de Tanaka:** Idade (anos), FC de Repouso (bpm), Percentual de Treinamento (%).
 
 ## 9. Saídas esperadas por calculadora
 
@@ -188,6 +207,7 @@ As regras a seguir definem a lógica de cálculo e as referências clínicas do 
 * **Teste do Degrau:** Valor Predito numérico e Percentual Predito (%).
 * **Manovacuometria:** Valores Preditos numéricos de PImáx e PEmáx, e Limites Inferiores da Normalidade correspondentes.
 * **Carga Tabágica:** Valor numérico de maços-ano.
+* **Fórmula de Tanaka:** FCmáx (bpm), FC de Reserva (bpm) e FC de Treinamento (bpm).
 
 ## 10. Validações
 
