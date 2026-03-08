@@ -19,6 +19,14 @@ npm run build      # build de produção em dist/
 npm run preview    # pré-visualizar o build de produção localmente
 ```
 
+## Deploy
+
+GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`). Push para `main` dispara o deploy automaticamente.
+
+URL de produção: `https://rafields13.github.io/fisio-box/`
+
+O `base: '/fisio-box/'` em `vite.config.js` é obrigatório para o roteamento de assets funcionar no GitHub Pages.
+
 ## Architecture
 
 Single Page Application with a sidebar/menu for switching between 6 independent calculator views. Each calculator is a self-contained component with its own form, calculation logic, and result display.
