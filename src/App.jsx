@@ -1,26 +1,25 @@
 import { useState } from 'react'
+import Imc from './components/calculators/Imc'
+import Rcq from './components/calculators/Rcq'
+import Tc6m from './components/calculators/Tc6m'
+import TesteDegrau from './components/calculators/TesteDegrau'
+import Manovacuometria from './components/calculators/Manovacuometria'
+import CargaTabagica from './components/calculators/CargaTabagica'
 
 const CALCULADORAS = [
-  { id: 'imc',            label: 'IMC',                     descricao: 'Índice de Massa Corporal' },
-  { id: 'rcq',            label: 'RCQ',                     descricao: 'Relação Cintura-Quadril' },
-  { id: 'tc6m',           label: 'TC6M',                    descricao: 'Teste de Caminhada de 6 Minutos' },
-  { id: 'testeDegrau',    label: 'Teste do Degrau',         descricao: 'Aptidão Cardiorrespiratória' },
-  { id: 'manovacuometria',label: 'Manovacuometria',         descricao: 'Pressões Respiratórias Máximas' },
-  { id: 'cargaTabagica',  label: 'Carga Tabágica',          descricao: 'Maços-Ano' },
+  { id: 'imc',             label: 'IMC',              descricao: 'Índice de Massa Corporal',          componente: Imc },
+  { id: 'rcq',             label: 'RCQ',              descricao: 'Relação Cintura-Quadril',           componente: Rcq },
+  { id: 'tc6m',            label: 'TC6M',             descricao: 'Teste de Caminhada de 6 Minutos',  componente: Tc6m },
+  { id: 'testeDegrau',     label: 'Teste do Degrau',  descricao: 'Aptidão Cardiorrespiratória',       componente: TesteDegrau },
+  { id: 'manovacuometria', label: 'Manovacuometria',  descricao: 'Pressões Respiratórias Máximas',   componente: Manovacuometria },
+  { id: 'cargaTabagica',   label: 'Carga Tabágica',   descricao: 'Maços-Ano',                        componente: CargaTabagica },
 ]
-
-function PlaceholderCalculadora({ label }) {
-  return (
-    <div className="flex items-center justify-center h-40 rounded-xl border-2 border-dashed border-gray-200">
-      <p className="text-gray-400 text-sm">{label} — em breve</p>
-    </div>
-  )
-}
 
 export default function App() {
   const [ativa, setAtiva] = useState('imc')
 
   const atual = CALCULADORAS.find((c) => c.id === ativa)
+  const Calculadora = atual.componente
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900 text-base">
@@ -60,7 +59,7 @@ export default function App() {
         {/* ── Conteúdo principal ── */}
         <main className="flex-1 flex flex-col min-w-0">
 
-          {/* Tabs de navegação mobile */}
+          {/* Tabs mobile */}
           <nav className="md:hidden overflow-x-auto bg-white border-b border-gray-200">
             <div className="flex gap-1 px-3 py-2 min-w-max">
               {CALCULADORAS.map((c) => (
@@ -79,13 +78,13 @@ export default function App() {
             </div>
           </nav>
 
-          {/* Área do calculador */}
+          {/* Calculadora ativa */}
           <div className="flex-1 px-4 py-6 max-w-2xl w-full mx-auto">
             <div className="mb-6">
               <h2 className="text-xl font-bold text-gray-800">{atual.label}</h2>
               <p className="text-sm text-gray-500 mt-0.5">{atual.descricao}</p>
             </div>
-            <PlaceholderCalculadora label={atual.label} />
+            <Calculadora key={ativa} />
           </div>
 
         </main>
