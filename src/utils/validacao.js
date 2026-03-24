@@ -72,3 +72,32 @@ export function validarCargaTabagica({ cigarrosDia, anosFumando }) {
   if (!positivo(anosFumando)) erros.anosFumando = CAMPO_OBRIGATORIO
   return erros
 }
+
+// Cirtometria Toraco-abdominal
+export function validarCirtometria({ axilarInsp, axilarExp, xifoideInsp, xifoideExp, umbilicalInsp, umbilicalExp }) {
+  const erros = {}
+  if (!positivo(axilarInsp)) erros.axilarInsp = CAMPO_OBRIGATORIO
+  if (!positivo(axilarExp)) erros.axilarExp = CAMPO_OBRIGATORIO
+  if (!positivo(xifoideInsp)) erros.xifoideInsp = CAMPO_OBRIGATORIO
+  if (!positivo(xifoideExp)) erros.xifoideExp = CAMPO_OBRIGATORIO
+  if (!positivo(umbilicalInsp)) erros.umbilicalInsp = CAMPO_OBRIGATORIO
+  if (!positivo(umbilicalExp)) erros.umbilicalExp = CAMPO_OBRIGATORIO
+  if (!erros.axilarInsp && !erros.axilarExp && Number(axilarInsp) <= Number(axilarExp))
+    erros.axilarInsp = 'Inspiração deve ser maior que Expiração.'
+  if (!erros.xifoideInsp && !erros.xifoideExp && Number(xifoideInsp) <= Number(xifoideExp))
+    erros.xifoideInsp = 'Inspiração deve ser maior que Expiração.'
+  if (!erros.umbilicalInsp && !erros.umbilicalExp && Number(umbilicalInsp) <= Number(umbilicalExp))
+    erros.umbilicalInsp = 'Inspiração deve ser maior que Expiração.'
+  return erros
+}
+
+// Brawner (Beta-bloqueadores)
+export function validarBrawner({ idade, fcRepouso, percentualTreinamento }) {
+  const erros = {}
+  if (!positivo(idade)) erros.idade = CAMPO_OBRIGATORIO
+  if (!positivo(fcRepouso)) erros.fcRepouso = CAMPO_OBRIGATORIO
+  const p = Number(percentualTreinamento)
+  if (!percentualTreinamento || p <= 0 || p > 100)
+    erros.percentualTreinamento = 'Informe um percentual entre 1 e 100.'
+  return erros
+}

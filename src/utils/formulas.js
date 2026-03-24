@@ -104,3 +104,20 @@ export function calcularCargaTabagica({ cigarrosDia, anosFumando }) {
   const carga = (Number(cigarrosDia) / 20) * Number(anosFumando)
   return { carga: round2(carga) }
 }
+
+// Cirtometria Toraco-abdominal
+export function calcularCirtometria({ axilarInsp, axilarExp, xifoideInsp, xifoideExp, umbilicalInsp, umbilicalExp }) {
+  return {
+    axilarAmplitude:    round2(Number(axilarInsp) - Number(axilarExp)),
+    xifoideAmplitude:   round2(Number(xifoideInsp) - Number(xifoideExp)),
+    umbilicalAmplitude: round2(Number(umbilicalInsp) - Number(umbilicalExp)),
+  }
+}
+
+// Brawner (Beta-bloqueadores)
+export function calcularBrawner({ idade, fcRepouso, percentualTreinamento }) {
+  const fcMax = round2(164 - 0.7 * Number(idade))
+  const fcReserva = round2(fcMax - Number(fcRepouso))
+  const fcTreinamento = round2((fcReserva * Number(percentualTreinamento) / 100) + Number(fcRepouso))
+  return { fcMax, fcReserva, fcTreinamento }
+}
