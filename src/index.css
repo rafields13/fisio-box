@@ -7,3 +7,22 @@
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 }
+
+@media print {
+  header, nav, aside, .no-print { display: none !important; }
+
+  body { font-size: 11pt; color: #000; }
+  main { display: block !important; padding: 0 !important; }
+  .ficha-evolucao-container, .relatorio-diario-container { max-width: 100% !important; }
+
+  .print-assinatura {
+    border-top: 1px solid #000;
+    margin-top: 40px;
+    padding-top: 6px;
+  }
+
+  .print-break { page-break-before: always; }
+
+  /* Show print-only elements */
+  .print\:block { display: block !important; }
+}
